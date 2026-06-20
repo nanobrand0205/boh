@@ -106,5 +106,13 @@ a.ni:hover{background:#f0ede8}
   .memo { display: none; }
   .page-hero { padding: 20px 16px 14px; }
   .ph-en { font-size: 18px; }
-  .ach-grid { grid-template-columns: 1fr; }
+  /* カードグリッド：1列に */
+  .ach-grid,
+  .bgrid,
+  .biz-grid3,
+  .domain-grid,
+  .future-flow,
+  .agrid,
+  .news-grid,
+  .svc-cols { grid-template-columns: 1fr !important; }
 }
