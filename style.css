@@ -106,6 +106,10 @@ a.ni:hover{background:#f0ede8}
   .memo { display: none; }
   .page-hero { padding: 20px 16px 14px; }
   .ph-en { font-size: 18px; }
+  /* セクション見出し */
+  .biz-sh { flex-wrap: wrap; gap: 4px; }
+  .biz-sh-en { font-size: 22px; }
+  .biz-sh-num { padding-top: 2px; }
   /* カードグリッド：1列に */
   .ach-grid,
   .bgrid,
