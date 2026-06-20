@@ -40,7 +40,10 @@
     <a class="ni active" href="contact.html">CONTACT</a>
     <a class="ni gold" href="about.html#greeting">代表あいさつ</a>
   </nav>
-  <div class="header-icons">🔍 ≡</div>
+  <div style="display:flex;align-items:center;gap:12px;padding-right:16px">
+    <div class="header-icons">🔍 ≡</div>
+    <div class="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
+  </div>
 </div>
 
 <div class="page-hero-dark">
@@ -156,5 +159,26 @@
 </div>
 
 </div>
+
+<!-- モバイルメニュー -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="closeMobileMenu()">✕</button>
+  <a class="ni" href="index.html">HOME</a>
+  <a class="ni" href="about.html">ABOUT US</a>
+  <a class="ni teal" href="services.html">BUSINESS<sub>行政・企業向け</sub></a>
+  <a class="ni purple" href="personal-lab.html">BOH Personal Lab<sub>個人のお客様へ</sub></a>
+  <a class="ni active" href="contact.html">CONTACT</a>
+  <a class="ni gold" href="about.html#greeting">代表あいさつ</a>
+</div>
+<script>
+function toggleMobileMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+  document.querySelector('.hamburger').classList.toggle('open');
+}
+function closeMobileMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.querySelector('.hamburger').classList.remove('open');
+}
+</script>
 </body>
 </html>
