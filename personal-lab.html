@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOH Personal Lab ワイヤーフレーム</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* Personal Lab — セクション見出しを上書き */
+.sh{font-size:18px;font-style:italic;font-family:Georgia,serif;color:#1a1a1a;font-weight:300;letter-spacing:.04em;border-bottom:1px solid #e0ddd8;padding-bottom:8px;margin:22px 0 12px;display:block}
+.sh .lbl-n,.sh .lbl-e,.sh .lbl-k{font-style:normal;font-size:8px;vertical-align:middle}
+
+/* Personal Lab LP専用 */
+
+/* キャッチコピーブロック */
+.lab-catch{background:#fff;border:1px solid #e0ddd8;border-left:3px solid #b8973a;padding:18px 20px;margin-bottom:6px}
+.lab-catch-copy{font-size:15px;font-weight:300;color:#1a1a1a;line-height:1.85;margin-bottom:8px;letter-spacing:.04em;font-style:italic}
+.lab-catch-body{font-size:10px;color:#666;line-height:2}
+
+/* こんな方へ */
+.target-list{background:#fdf5e0;border:1px solid #e8d88a;padding:14px 16px;margin-bottom:6px}
+.target-item{display:flex;align-items:flex-start;gap:8px;padding:5px 0;border-bottom:1px solid #f5ead0;font-size:10px;color:#333;line-height:1.6}
+.target-item:last-child{border-bottom:none}
+.target-check{width:16px;height:16px;border:1px solid #b8973a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.target-check-inner{width:6px;height:6px;background:#b8973a;border-radius:50%}
+
+/* サービス内容 */
+.svc-type-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:6px}
+.svc-type-card{background:#fff;border:1px solid #e0ddd8;padding:14px}
+.svc-type-en{font-size:8px;letter-spacing:.18em;color:#b8973a;margin-bottom:4px}
+.svc-type-title{font-size:12px;font-weight:500;color:#1a1a1a;margin-bottom:6px}
+.svc-type-sub{font-size:9px;color:#999;margin-bottom:8px}
+.svc-type-list{font-size:9px;color:#666;line-height:1.85}
+.svc-type-list li{list-style:none;padding-left:9px;position:relative}
+.svc-type-list li::before{content:"—";position:absolute;left:0;color:#b8973a;font-size:8px}
+
+/* キャンペーンバナー */
+.campaign-box{background:#111;border:1px solid #c8a84b;padding:16px;margin-bottom:6px;text-align:center;position:relative;overflow:hidden}
+.campaign-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,#2d2416 0%,#111 70%)}
+.campaign-inner{position:relative;z-index:1}
+.campaign-label{font-size:8px;letter-spacing:.3em;color:#c8a84b;margin-bottom:6px}
+.campaign-title{font-size:14px;font-style:italic;font-family:Georgia,serif;color:#c8a84b;margin-bottom:4px;letter-spacing:.1em}
+.campaign-body{font-size:10px;color:#ccc;line-height:1.7;margin-bottom:6px}
+.campaign-date{font-size:9px;color:#888;letter-spacing:.08em}
+
+/* プランカード */
+.plan-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:6px}
+.plan-card{background:#fff;border:2px solid #e0ddd8;overflow:hidden}
+.plan-card.plan-h{border-color:#c8a84b}
+.plan-head{padding:14px 12px;text-align:center;border-bottom:1px solid #e0ddd8}
+.plan-card.plan-h .plan-head{background:#111;border-bottom:1px solid #c8a84b}
+.plan-name{font-size:11px;letter-spacing:.2em;color:#b8973a;margin-bottom:2px;font-weight:500}
+.plan-card.plan-h .plan-name{color:#c8a84b}
+.plan-en{font-size:20px;font-style:italic;font-family:Georgia,serif;color:#1a1a1a;font-weight:300}
+.plan-card.plan-h .plan-en{color:#fff}
+.plan-body{padding:12px}
+.plan-fee-label{font-size:8px;color:#aaa;letter-spacing:.1em;margin-bottom:2px}
+.plan-fee-orig{font-size:9px;color:#bbb;text-decoration:line-through;margin-bottom:1px}
+.plan-fee-campaign{font-size:16px;color:#b8973a;font-weight:600;letter-spacing:.02em}
+.plan-card.plan-h .plan-fee-campaign{color:#c8a84b}
+.plan-fee-note{font-size:8px;color:#aaa;margin-bottom:8px}
+.plan-lesson-label{font-size:8px;letter-spacing:.12em;color:#b8973a;border-top:1px solid #f0ede8;padding-top:8px;margin-bottom:5px}
+.plan-lesson-row{display:flex;justify-content:space-between;align-items:center;font-size:9px;color:#555;padding:3px 0;border-bottom:1px solid #f5f5f3}
+.plan-lesson-price{font-size:10px;color:#1a1a1a;font-weight:500}
+.plan-badge{display:inline-block;background:#c8a84b;color:#111;font-size:8px;padding:2px 6px;letter-spacing:.08em;margin-bottom:4px}
+
+/* H PLAN特典 */
+.tokuten-box{background:#111;border:1px solid #c8a84b;padding:16px;margin-bottom:6px;position:relative;overflow:hidden}
+.tokuten-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,#2d2416 0%,#111 70%)}
+.tokuten-inner{position:relative;z-index:1}
+.tokuten-title{font-size:9px;letter-spacing:.2em;color:#c8a84b;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.tokuten-list{font-size:10px;color:#ccc;line-height:1.85}
+.tokuten-list li{list-style:none;padding-left:14px;position:relative;margin-bottom:3px}
+.tokuten-list li::before{content:"◆";position:absolute;left:0;color:#c8a84b;font-size:7px;top:3px}
+
+/* 友人紹介 */
+.referral-box{background:#fff;border:1px solid #e0ddd8;padding:14px 16px;margin-bottom:6px;display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center}
+.referral-label{font-size:9px;letter-spacing:.15em;color:#b8973a;margin-bottom:6px}
+.referral-body{font-size:10px;color:#555;line-height:1.8}
+.referral-amount{font-size:20px;font-style:italic;font-family:Georgia,serif;color:#b8973a;text-align:center;padding:10px}
+.referral-note{font-size:8px;color:#aaa;text-align:center;margin-top:4px}
+
+/* 出張サービス */
+.dispatch-box{background:#fff;border:1px solid #e0ddd8;padding:14px 16px;margin-bottom:6px}
+.dispatch-label{font-size:9px;letter-spacing:.15em;color:#b8973a;margin-bottom:8px}
+.dispatch-body{font-size:10px;color:#555;line-height:1.85}
+.dispatch-note{font-size:9px;color:#aaa;border-top:1px solid #f0ede8;margin-top:8px;padding-top:6px}
+
+/* 入会の流れ */
+.flow-steps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:6px}
+.flow-step{background:#fff;border:1px solid #e0ddd8;padding:14px 12px;text-align:center}
+.flow-num{font-size:24px;font-style:italic;font-family:Georgia,serif;color:#e0ddd8;margin-bottom:4px}
+.flow-title{font-size:10px;font-weight:500;color:#1a1a1a;margin-bottom:6px}
+.flow-body{font-size:9px;color:#888;line-height:1.7}
+
+/* お支払い */
+.payment-box{background:#f5f2ed;border:1px solid #e0ddd8;padding:12px 14px;margin-bottom:6px}
+.payment-label{font-size:9px;letter-spacing:.15em;color:#b8973a;margin-bottom:6px}
+.payment-body{font-size:10px;color:#555;line-height:1.8}
+
+/* リンクエリア */
+.link-row{display:flex;gap:10px;margin-bottom:6px}
+.link-btn-border{flex:1;border:1px solid #e0ddd8;padding:10px;text-align:center;font-size:9px;color:#777;letter-spacing:.08em;background:#fff}
+
+/* section divider */
+.sec-divider{display:flex;align-items:center;gap:8px;margin:20px 0 16px}
+.sec-divider-line{flex:1;height:1px;background:#e0ddd8}
+.sec-divider-diamond{width:6px;height:6px;background:#b8973a;transform:rotate(45deg);flex-shrink:0}
+
+@media (max-width:600px){
+  .svc-type-grid{grid-template-columns:1fr}
+  .plan-grid{grid-template-columns:1fr}
+  .flow-steps{grid-template-columns:1fr}
+  .referral-box{grid-template-columns:1fr}
+  .referral-amount{font-size:16px;padding:6px}
+  .link-row{flex-direction:column}
+  .campaign-title{font-size:12px}
+  .lab-catch-copy{font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<div style="max-width:860px;margin:0 auto">
+
+<div class="header">
+  <img src="image/cropped-logo.png" alt="BOH" style="height:40px;width:200px;object-fit:contain;object-position:left center">
+  <nav class="nav">
+    <a class="ni" href="index.html">HOME</a>
+    <a class="ni" href="about.html">ABOUT US</a>
+    <a class="ni teal" href="services.html">BUSINESS<sub>行政・企業向け</sub></a>
+    <a class="ni purple active" href="personal-lab.html">BOH Personal Lab<sub>個人のお客様へ</sub></a>
+    <a class="ni" href="contact.html">CONTACT</a>
+    <a class="ni gold" href="about.html#greeting">代表あいさつ</a>
+  </nav>
+  <div class="header-icons">🔍 ≡</div>
+</div>
+
+<div class="page-hero-dark">
+  <div class="ph-img-label">
+    <div class="ph-en-dark">BOH Personal Lab</div>
+    <div class="ph-ja-dark">個人のお客様へ ／ 派遣型ウェルネスクラブ</div>
+  </div>
+</div>
+<div class="breadcrumb">TOP &nbsp;/&nbsp; BOH Personal Lab</div>
+
+<div class="layout">
+<div class="main">
+
+  <!-- コンセプト -->
+  <div class="sh">CONCEPT — サービスのご案内 <span class="lbl-n">新規構成</span></div>
+  <div class="lab-catch">
+    <div class="lab-catch-copy">「本質的な美しさと健やかさを、あなたの日常の中へ。」</div>
+    <div class="lab-catch-body">BOH Personal Labは、俳優・ダンサーとして活動しながら健美インストラクターとしても活躍する進藤学が、お客様のご希望に合わせてレッスンをお届けする<strong>"派遣型ウェルネスクラブ"</strong>です。<br><br>レッスン場所は、ご自宅でも、レンタルスタジオでも、「自分と向き合える」と感じられる空間であればどこでも構いません。ご希望があれば、こちらから最適なスペースをご提案することも可能です。<br><br>私たちが大切にしているのは、皆さまの生活に寄り添いながら、本質的な美しさと健やかさを磨く時間をつくること。無理なく続けられる、あなただけのウェルネス習慣をサポートします。</div>
+  </div>
+  <div class="memo">【新規追加】サービスのコンセプトと「派遣型」であるという特徴を冒頭で明示。</div>
+
+  <div class="sec-divider"><div class="sec-divider-line"></div><div class="sec-divider-diamond"></div><div class="sec-divider-line"></div></div>
+
+  <!-- こんな方へ -->
+  <div class="sh">FOR YOU — こんな方へ <span class="lbl-n">新規追加</span></div>
+  <div class="target-list">
+    <div class="target-item">
+      <div class="target-check"><div class="target-check-inner"></div></div>
+      <div>ジムや教室に通うのが難しく、自宅や近くでレッスンを受けたい方</div>
+    </div>
+    <div class="target-item">
+      <div class="target-check"><div class="target-check-inner"></div></div>
+      <div>姿勢・体幹・ボディメイクなど、身体の根本から整えたい方</div>
+    </div>
+    <div class="target-item">
+      <div class="target-check"><div class="target-check-inner"></div></div>
+      <div>ダンスや身体表現を通じて、美しく健やかに年齢を重ねたい方</div>
+    </div>
+    <div class="target-item">
+      <div class="target-check"><div class="target-check-inner"></div></div>
+      <div>舞台・ステージへの出演を目指して、本格的に身体をつくりたい方</div>
+    </div>
+    <div class="target-item">
+      <div class="target-check"><div class="target-check-inner"></div></div>
+      <div>インストラクター・進藤学の活動を応援しながら、ともに成長したい方</div>
+    </div>
+  </div>
+
+  <div class="sec-divider"><div class="sec-divider-line"></div><div class="sec-divider-diamond"></div><div class="sec-divider-line"></div></div>
+
+  <!-- サービス内容 -->
+  <div class="sh">SERVICE — サービス内容 <span class="lbl-n">新規追加</span></div>
+  <div class="svc-type-grid">
+    <div class="svc-type-card">
+      <div class="svc-type-en">PERSONAL LESSON</div>
+      <div class="svc-type-title">パーソナルレッスン</div>
+      <div class="svc-type-sub">1〜2名まで</div>
+      <ul class="svc-type-list">
+        <li>完全マンツーマン対応</li>
+        <li>お客様のペース・目的に合わせたプログラム</li>
+        <li>姿勢・体幹・ダンス・身体表現など</li>
+        <li>ご自宅・指定場所へ出張</li>
+      </ul>
+    </div>
+    <div class="svc-type-card">
+      <div class="svc-type-en">GROUP LESSON</div>
+      <div class="svc-type-title">グループレッスン</div>
+      <div class="svc-type-sub">3名以上</div>
+      <ul class="svc-type-list">
+        <li>友人・知人とグループでの受講</li>
+        <li>共通テーマのプログラムを実施</li>
+        <li>指定場所へ出張</li>
+        <li>少人数ながら仲間と楽しく続けられる</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec-divider"><div class="sec-divider-line"></div><div class="sec-divider-diamond"></div><div class="sec-divider-line"></div></div>
+
+  <!-- キャンペーン -->
+  <div class="sh">CAMPAIGN — 入会キャンペーン実施中 <span class="lbl-n">新規追加</span></div>
+  <div class="campaign-box">
+    <div class="campaign-inner">
+      <div class="campaign-label">— OPENING CAMPAIGN —</div>
+      <div class="campaign-title">年会費 半額キャンペーン</div>
+      <div class="campaign-body">BOH創業記念日（8月8日）までにご入会の方は、<br>全プランの年会費が<strong style="color:#c8a84b">半額</strong>になります。</div>
+      <div style="font-size:10px;color:#c8a84b;margin:8px 0;letter-spacing:.06em">＋ ご入会全員に 進藤学の<strong>直筆サイン色紙</strong>をプレゼント</div>
+      <div class="campaign-date">キャンペーン期間：〜 2026年8月8日（土）まで</div>
+    </div>
+  </div>
+
+  <!-- 料金プラン -->
+  <div class="sh">PLAN — ご入会プラン <span class="lbl-n">新規追加</span></div>
+  <div style="font-size:10px;color:#555;line-height:1.85;margin-bottom:12px">BOH Personal Labの会員プランは3種類ございます。<br>目的や通うペースに合わせて、最適なプランをお選びください。</div>
+  <div class="plan-grid">
+
+    <div class="plan-card">
+      <div class="plan-head">
+        <div class="plan-name">B PLAN</div>
+      </div>
+      <div class="plan-body">
+        <div class="plan-fee-label">年会費</div>
+        <div class="plan-fee-orig">通常 ¥30,000</div>
+        <div class="plan-fee-campaign">¥15,000 <span style="font-size:10px;font-style:normal;font-family:sans-serif;font-weight:400">（税抜）</span></div>
+        <div class="plan-fee-note">キャンペーン期間中 半額</div>
+        <div class="plan-lesson-label">レッスン料金 / 回</div>
+        <div class="plan-lesson-row">
+          <span>パーソナル（1〜2名）</span>
+          <span class="plan-lesson-price">¥6,000</span>
+        </div>
+        <div style="font-size:8px;color:#aaa;margin-bottom:5px;padding-bottom:5px;border-bottom:1px solid #f5f5f3">2名まで同額 ／ 同席の非会員：¥8,000</div>
+        <div class="plan-lesson-row">
+          <span>グループ（3名〜）</span>
+          <span class="plan-lesson-price">¥12,000</span>
+        </div>
+        <div style="font-size:8px;color:#aaa">3名まで同額 ／ 4名〜1名につき+¥2,000</div>
+        <div style="margin-top:8px;padding:6px 8px;background:#fdf5e0;border:1px solid #e8d88a;font-size:8px;color:#b8973a">入会特典：パーソナルレッスン25分×1回付き</div>
+      </div>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-head">
+        <div class="plan-name">O PLAN</div>
+      </div>
+      <div class="plan-body">
+        <div class="plan-fee-label">年会費</div>
+        <div class="plan-fee-orig">通常 ¥40,000</div>
+        <div class="plan-fee-campaign">¥20,000 <span style="font-size:10px;font-style:normal;font-family:sans-serif;font-weight:400">（税抜）</span></div>
+        <div class="plan-fee-note">キャンペーン期間中 半額</div>
+        <div class="plan-lesson-label">レッスン料金 / 回</div>
+        <div class="plan-lesson-row">
+          <span>パーソナル（1〜2名）</span>
+          <span class="plan-lesson-price">¥5,500</span>
+        </div>
+        <div style="font-size:8px;color:#aaa;margin-bottom:5px;padding-bottom:5px;border-bottom:1px solid #f5f5f3">2名まで同額 ／ 同席の非会員：¥7,500</div>
+        <div class="plan-lesson-row">
+          <span>グループ（3名〜）</span>
+          <span class="plan-lesson-price">¥11,000</span>
+        </div>
+        <div style="font-size:8px;color:#aaa">3名まで同額 ／ 4名〜1名につき+¥1,500</div>
+        <div style="margin-top:8px;padding:6px 8px;background:#fdf5e0;border:1px solid #e8d88a;font-size:8px;color:#b8973a">入会特典：パーソナルレッスン50分×1回付き</div>
+      </div>
+    </div>
+
+    <div class="plan-card plan-h">
+      <div class="plan-head" style="display:flex;align-items:center;justify-content:center;gap:8px">
+        <div class="plan-badge" style="margin-bottom:0">おすすめ</div>
+        <div class="plan-name" style="margin-bottom:0">H PLAN</div>
+      </div>
+      <div class="plan-body">
+        <div class="plan-fee-label">年会費</div>
+        <div class="plan-fee-orig">通常 ¥50,000</div>
+        <div class="plan-fee-campaign">¥25,000 <span style="font-size:10px;font-style:normal;font-family:sans-serif;font-weight:400">（税抜）</span></div>
+        <div class="plan-fee-note">キャンペーン期間中 半額</div>
+        <div class="plan-lesson-label">レッスン料金 / 回</div>
+        <div class="plan-lesson-row">
+          <span>パーソナル（1〜2名）</span>
+          <span class="plan-lesson-price">¥5,000</span>
+        </div>
+        <div style="font-size:8px;color:#888;margin-bottom:5px;padding-bottom:5px;border-bottom:1px solid #333">2名まで同額 ／ 同席の非会員：¥7,000</div>
+        <div class="plan-lesson-row">
+          <span>グループ（3名〜）</span>
+          <span class="plan-lesson-price">¥10,000</span>
+        </div>
+        <div style="font-size:8px;color:#888">3名まで同額 ／ 4名〜1名につき+¥1,500</div>
+        <div style="margin-top:8px;padding:6px 8px;background:#2d2416;border:1px solid #c8a84b;font-size:8px;color:#c8a84b">入会特典：パーソナルレッスン50分×1回付き</div>
+      </div>
+    </div>
+
+  </div>
+  <div style="background:#f5f2ed;border:1px solid #e0ddd8;padding:10px 14px;margin-bottom:6px">
+    <ul style="list-style:none;padding:0;margin:0">
+      <li style="font-size:9px;color:#888;line-height:1.7;padding-left:10px;position:relative;margin-bottom:2px"><span style="position:absolute;left:0;color:#b8973a">※</span>表示価格はすべて税抜です。</li>
+      <li style="font-size:9px;color:#888;line-height:1.7;padding-left:10px;position:relative;margin-bottom:2px"><span style="position:absolute;left:0;color:#b8973a">※</span>パーソナルレッスンは最大2名様まで同時受講可能です。</li>
+      <li style="font-size:9px;color:#888;line-height:1.7;padding-left:10px;position:relative;margin-bottom:2px"><span style="position:absolute;left:0;color:#b8973a">※</span>グループレッスンは3名様から承ります。</li>
+      <li style="font-size:9px;color:#888;line-height:1.7;padding-left:10px;position:relative"><span style="position:absolute;left:0;color:#b8973a">※</span>同席の方が非会員の場合は料金が変更になります。詳細はお問い合わせください。</li>
+    </ul>
+  </div>
+  <div class="memo">【新規追加】3プランをカード形式で比較表示。H PLANを推奨として強調（ダーク背景）。実際の価格・キャンペーン価格・非会員料金・グループ追加料金・注意事項をすべて明記。</div>
+
+  <div class="sec-divider"><div class="sec-divider-line"></div><div class="sec-divider-diamond"></div><div class="sec-divider-line"></div></div>
+
+  <!-- H PLAN特典 -->
+  <div class="sh">PRIVILEGE — H PLAN 推し活特典 <span class="lbl-n">新規追加</span></div>
+  <div class="tokuten-box">
+    <div class="tokuten-inner">
+      <div class="tokuten-title">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><polygon points="7,1 8.5,5.5 13,5.5 9.5,8.5 11,13 7,10 3,13 4.5,8.5 1,5.5 5.5,5.5" fill="#c8a84b"/></svg>
+        H PLAN 会員限定の特典
+      </div>
+      <div style="font-size:10px;color:#bbb;line-height:1.85;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #333">インストラクターとして、そして"演者"としての進藤学を応援したい方に。<br>"ファンクラブとフィットネスクラブの融合"を実現した、H Plan会員様限定の特別特典です。</div>
+      <ul class="tokuten-list">
+        <li>公演・イベントのチケット先行予約特典</li>
+        <li>公演・イベントでの楽屋ご挨拶特典</li>
+        <li>会員限定イベントへの参加特典</li>
+        <li>会員証の贈呈　など</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec-divider"><div class="sec-divider-line"></div><div class="sec-divider-diamond"></div><div class="sec-divider-line"></div></div>
+
+  <!-- 友人紹介制度 -->
+  <div class="sh">REFERRAL — 友人紹介制度 <span class="lbl-n">新規追加</span></div>
+  <div style="background:#fff;border:1px solid #e0ddd8;padding:14px 16px;margin-bottom:6px">
+    <div class="referral-label">おふたりともお得に！</div>
+    <div class="referral-body">現会員の方が友人・知人をご紹介いただいた場合、<strong>紹介した方・された方の双方に¥2,000の割引</strong>が適用されます。</div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:6px">
+    <div style="background:#fff;border:1px solid #e0ddd8;padding:14px">
+      <div style="font-size:8px;letter-spacing:.15em;color:#b8973a;margin-bottom:4px">FOR REFERRER</div>
+      <div style="font-size:11px;font-weight:500;color:#1a1a1a;margin-bottom:8px">ご紹介者様特典</div>
+      <div style="font-size:18px;font-style:italic;font-family:Georgia,serif;color:#b8973a;margin-bottom:8px">¥2,000 off</div>
+      <div style="font-size:9px;color:#666;line-height:1.8;margin-bottom:8px">お友達が入会し、初回レッスンを完了すると、次回プライベートレッスン料金から割引が適用されます。</div>
+      <div style="font-size:8px;color:#aaa;line-height:1.7;border-top:1px solid #f0ede8;padding-top:6px">・ご紹介者につき1回利用可能<br>・有効期限：特典発生から3ヶ月間</div>
+    </div>
+    <div style="background:#111;border:1px solid #c8a84b;padding:14px;position:relative;overflow:hidden">
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,#2d2416 0%,#111 70%)"></div>
+      <div style="position:relative;z-index:1">
+        <div style="font-size:8px;letter-spacing:.15em;color:#c8a84b;margin-bottom:4px">FOR NEW MEMBER</div>
+        <div style="font-size:11px;font-weight:500;color:#fff;margin-bottom:8px">ご入会者様特典</div>
+        <div style="font-size:18px;font-style:italic;font-family:Georgia,serif;color:#c8a84b;margin-bottom:8px">¥2,000 off</div>
+        <div style="font-size:9px;color:#bbb;line-height:1.8;margin-bottom:8px">ご入会後、初回プライベートレッスン料金から割引が適用されます。</div>
+        <div style="font-size:8px;color:#888;line-height:1.7;border-top:1px solid #333;padding-top:6px">・ご入会から1ヶ月以内に利用可能</div>
+      </div>
+    </div>
+  </div>
+  <div style="background:#fff;border:1px solid #e0ddd8;padding:14px 16px;margin-bottom:6px">
+    <div style="font-size:8px;letter-spacing:.15em;color:#b8973a;margin-bottom:10px">— ご紹介の流れ</div>
+    <div style="display:flex;flex-direction:column;gap:0">
+      <div style="display:flex;gap:10px;padding:7px 0;border-bottom:1px solid #f5f5f3;align-items:flex-start">
+        <div style="font-size:20px;font-style:italic;font-family:Georgia,serif;color:#e0ddd8;line-height:1;flex-shrink:0;width:18px">1</div>
+        <div style="font-size:10px;color:#555;line-height:1.6">会員様がお知り合いにBOH Personal Labをご紹介</div>
+      </div>
+      <div style="display:flex;gap:10px;padding:7px 0;border-bottom:1px solid #f5f5f3;align-items:flex-start">
+        <div style="font-size:20px;font-style:italic;font-family:Georgia,serif;color:#e0ddd8;line-height:1;flex-shrink:0;width:18px">2</div>
+        <div style="font-size:10px;color:#555;line-height:1.6">お友達が会員登録・初回レッスン受講・お支払いを完了</div>
+      </div>
+      <div style="display:flex;gap:10px;padding:7px 0;border-bottom:1px solid #f5f5f3;align-items:flex-start">
+        <div style="font-size:20px;font-style:italic;font-family:Georgia,serif;color:#e0ddd8;line-height:1;flex-shrink:0;width:18px">3</div>
+        <div style="font-size:10px;color:#555;line-height:1.6">「〇〇様からのご紹介」と申告</div>
+      </div>
+      <div style="display:flex;gap:10px;padding:7px 0;border-bottom:1px solid #f5f5f3;align-items:flex-start">
+        <div style="font-size:20px;font-style:italic;font-family:Georgia,serif;color:#e0ddd8;line-height:1;flex-shrink:0;width:18px">4</div>
+        <div style="font-size:10px;color:#555;line-height:1.6">条件成立後、ご紹介者様は次回レッスンで割引を適用</div>
+      </div>
+      <div style="display:flex;gap:10px;padding:7px 0;align-items:flex-start">
+        <div style="font-size:20px;font-style:italic;font-family:Georgia,serif;color:#e0ddd8;line-height:1;flex-shrink:0;width:18px">5</div>
+        <div style="font-size:10px;color:#555;line-height:1.6">ご入会者様は初回レッスン時に割引を適用</div>
+      </div>
+    </div>
+    <div style="background:#f5f2ed;border:1px solid #e0ddd8;padding:10px 12px;margin-top:10px">
+      <div style="font-size:8px;letter-spacing:.12em;color:#b8973a;margin-bottom:6px">注意事項</div>
+      <ul style="list-style:none;padding:0;margin:0">
+        <li style="font-size:9px;color:#888;line-height:1.7;padding-left:10px;position:relative;margin-bottom:2px"><span style="position:absolute;left:0;color:#b8973a">・</span>ご紹介者様特典は、お友達の入会＋初回レッスン完了後に適用されます</li>
+        <li style="font-size:9px;color:#888;line-height:1.7;padding-left:10px;position:relative;margin-bottom:2px"><span style="position:absolute;left:0;color:#b8973a">・</span>ご入会者様特典は、ご入会から1ヶ月以内の初回レッスンに限ります</li>
+        <li style="font-size:9px;color:#888;line-height:1.7;padding-left:10px;position:relative;margin-bottom:2px"><span style="position:absolute;left:0;color:#b8973a">・</span>特典の金額交換はできません</li>
+        <li style="font-size:9px;color:#888;line-height:1.7;padding-left:10px;position:relative"><span style="position:absolute;left:0;color:#b8973a">・</span>制度は予告なく変更・終了する場合があります</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec-divider"><div class="sec-divider-line"></div><div class="sec-divider-diamond"></div><div class="sec-divider-line"></div></div>
+
+  <!-- 出張サービス -->
+  <div class="sh">On-site Service — 都外への出張サービス <span class="lbl-n">新規追加</span></div>
+  <div class="dispatch-box">
+    <div class="dispatch-label">— 出張エリア・費用について</div>
+    <div class="dispatch-body">国内（外）、遠方への出張レッスンも可能です。お気軽にお問合せください。</div>
+    <div style="margin-top:10px">
+      <div style="display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid #f0ede8;font-size:10px;color:#555;line-height:1.6">
+        <span style="color:#b8973a;font-size:8px;margin-top:3px;flex-shrink:0">◆</span>
+        <span>交通費・宿泊費は別途実費にてお願いしております。</span>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:8px;padding:6px 0;font-size:10px;color:#555;line-height:1.6">
+        <span style="color:#b8973a;font-size:8px;margin-top:3px;flex-shrink:0">◆</span>
+        <span>合計30,000円以上のレッスン依頼をお願いしております。（拘束時間に対する最低レッスン費）</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-divider"><div class="sec-divider-line"></div><div class="sec-divider-diamond"></div><div class="sec-divider-line"></div></div>
+
+  <!-- 入会の流れ -->
+  <div style="padding:16px 0 12px;border-bottom:1px solid #e8e5e0;margin-bottom:14px">
+    <div style="font-size:22px;font-style:italic;font-family:Georgia,serif;color:#1a1a1a;font-weight:300;letter-spacing:.04em;line-height:1;margin-bottom:5px">Membership Flow <span class="lbl-n" style="font-style:normal;font-size:8px;vertical-align:middle">新規追加</span></div>
+    <div style="font-size:8px;letter-spacing:.2em;color:#b8973a">入会の流れ</div>
+  </div>
+  <div class="flow-steps">
+    <div class="flow-step">
+      <div class="flow-num">01</div>
+      <div class="flow-title">申し込みフォーム送信</div>
+      <div class="flow-body">必要事項をご記入の上、申し込みフォームを送信してください。</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">02</div>
+      <div class="flow-title">メール案内</div>
+      <div class="flow-body">登録内容の確認とお支払い方法をメールにてご案内いたします。</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">03</div>
+      <div class="flow-title">会員登録完了</div>
+      <div class="flow-body">入金確認後、会員登録完了のメールをお送りします。レッスン日程を調整して開始です。</div>
+    </div>
+  </div>
+
+  <div style="background:#111;border:1px solid #c8a84b;padding:0;margin-top:10px;margin-bottom:6px;position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,#2d2416 0%,#111 70%)"></div>
+    <div style="position:relative;z-index:1;padding:20px;text-align:center">
+      <div style="font-size:8px;letter-spacing:.3em;color:#888;margin-bottom:6px">— MEMBERSHIP APPLICATION —</div>
+      <div style="font-size:16px;font-style:italic;font-family:Georgia,serif;color:#fff;margin-bottom:4px">Membership Application</div>
+      <div style="font-size:8px;letter-spacing:.2em;color:#c8a84b;margin-bottom:14px">ご入会申し込みフォーム</div>
+      <div style="font-size:10px;color:#bbb;line-height:1.8;margin-bottom:16px">ただいま会員を募集しております。<br>入会申し込みは簡単入力で約3分。<br>こちらのフォームから、すぐにお手続きいただけます。</div>
+      <a href="https://boh888.jp/registration/" target="_blank" style="display:inline-block;background:#c8a84b;color:#111;font-size:10px;letter-spacing:.2em;padding:10px 28px;text-decoration:none;font-weight:500">APPLY NOW &nbsp;›</a>
+      <div style="font-size:8px;color:#555;margin-top:12px">年会費のお支払いは銀行振込。お振込先はメール案内の際にお知らせいたします。</div>
+    </div>
+  </div>
+
+  <div class="sec-divider"><div class="sec-divider-line"></div><div class="sec-divider-diamond"></div><div class="sec-divider-line"></div></div>
+
+  <!-- パンフレットダウンロード -->
+  <a href="#" style="display:flex;align-items:center;justify-content:space-between;background:#f5f2ed;border:1px solid #e0ddd8;padding:14px 16px;margin-bottom:6px;text-decoration:none">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:28px;height:36px;background:#b8973a;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+        <svg width="14" height="18" viewBox="0 0 14 18" fill="none"><rect x="2" y="1" width="10" height="14" rx="1" stroke="#fff" stroke-width="1.2"/><line x1="4" y1="5" x2="10" y2="5" stroke="#fff" stroke-width="1"/><line x1="4" y1="8" x2="10" y2="8" stroke="#fff" stroke-width="1"/><line x1="4" y1="11" x2="8" y2="11" stroke="#fff" stroke-width="1"/></svg>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:500;color:#1a1a1a;margin-bottom:2px">入会パンフレットをダウンロード</div>
+        <div style="font-size:8px;color:#aaa">PDF形式 &nbsp;BOH Personal Lab 資料</div>
+      </div>
+    </div>
+    <div style="font-size:10px;color:#b8973a">›</div>
+  </a>
+
+  <div class="sec-divider"><div class="sec-divider-line"></div><div class="sec-divider-diamond"></div><div class="sec-divider-line"></div></div>
+
+  <!-- 規約・プライバシーポリシー -->
+  <div class="sh">LEGAL — 規約・ポリシー</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:6px">
+    <div style="background:#fff;border:1px solid #e0ddd8;padding:16px">
+      <div style="font-size:16px;font-style:italic;font-family:Georgia,serif;color:#1a1a1a;margin-bottom:3px">Membership Rules</div>
+      <div style="font-size:8px;letter-spacing:.15em;color:#b8973a;margin-bottom:10px">会員規約</div>
+      <div style="font-size:9px;color:#777;line-height:1.8;margin-bottom:12px">安心してご利用いただくために、ご入会前に会員規約をご確認ください。内容をご理解いただくことで、より快適にサービスをご利用いただけます。</div>
+      <a href="#" style="font-size:8px;letter-spacing:.15em;color:#b8973a;text-decoration:none">VIEW RULES &nbsp;›</a>
+    </div>
+    <div style="background:#fff;border:1px solid #e0ddd8;padding:16px">
+      <div style="font-size:16px;font-style:italic;font-family:Georgia,serif;color:#1a1a1a;margin-bottom:3px">Privacy Policy</div>
+      <div style="font-size:8px;letter-spacing:.15em;color:#b8973a;margin-bottom:10px">プライバシーポリシー</div>
+      <div style="font-size:9px;color:#777;line-height:1.8;margin-bottom:12px">お客様に安心してサービスをご利用いただくために、当クラブのプライバシーポリシーを公開しております。ご利用前にご確認ください。</div>
+      <a href="#" style="font-size:8px;letter-spacing:.15em;color:#b8973a;text-decoration:none">VIEW POLICY &nbsp;›</a>
+    </div>
+  </div>
+
+  <div class="sec-divider"><div class="sec-divider-line"></div><div class="sec-divider-diamond"></div><div class="sec-divider-line"></div></div>
+
+  <!-- CTA -->
+  <div class="sh">CONTACT — お申込み・お問合せ</div>
+  <div class="cta">
+    <div class="btn-sl">入会をご希望の方はこちらから</div>
+    <a class="btn-g" href="https://boh888.jp/registration/" target="_blank" style="display:block;color:#fff;text-decoration:none">入会申し込みフォームへ ›</a>
+    <div class="btn-sl">ご質問・ご相談は</div>
+    <div class="btn-s">BOH へのお問合せへ ›</div>
+  </div>
+
+</div>
+<div class="sidebar">
+  <div style="height:22px"></div>
+  <div class="sbw">
+    <div class="sbt">CAMPAIGN</div>
+    <img src="image/キャンペーン.png" alt="新規入会キャンペーン" style="width:100%;display:block;border:1px solid #e0ddd8">
+  </div>
+  <div class="sbw">
+    <div class="sbt">PLAN 早見表</div>
+    <div style="font-size:9px;color:#555">
+      <div style="padding:4px 0;border-bottom:1px solid #f0ede8;display:flex;justify-content:space-between"><span>B PLAN</span><span style="color:#b8973a">¥15,000〜</span></div>
+      <div style="padding:4px 0;border-bottom:1px solid #f0ede8;display:flex;justify-content:space-between"><span>O PLAN</span><span style="color:#b8973a">¥20,000〜</span></div>
+      <div style="padding:4px 0;display:flex;justify-content:space-between"><span>H PLAN</span><span style="color:#c8a84b;font-weight:500">¥25,000〜</span></div>
+      <div style="font-size:8px;color:#aaa;margin-top:4px">※キャンペーン価格（税込）</div>
+    </div>
+  </div>
+  <div class="sbw">
+    <div class="sbt">RECENT POSTS</div>
+    <div class="sbp">飛鳥Ⅱ アラスカ・ハワイ...<span>2026.05.20</span></div>
+    <div class="sbp">新規入会キャンペーン...<span>2026.04.16</span></div>
+    <div class="sbp">飛鳥クルーズ<span>2026.04.14</span></div>
+    <div class="sbp">健康マスター検定<span>2026.04.05</span></div>
+  </div>
+  <div class="sbw">
+    <div class="sbt">CATEGORY</div>
+    <div class="sbc">お知らせ (9)</div>
+    <div class="sbc">イベント (7)</div>
+    <div class="sbc">ウェルネス (8)</div>
+    <div class="sbc">日記 (7)</div>
+    <div class="sbc">生活習慣改善のコツ (10)</div>
+    <div class="sbc">進藤学アーカイブス (3)</div>
+  </div>
+</div>
+</div>
+
+<div class="footer">
+  <div class="fl">BOH</div>
+  <div class="fa">〒105-0022 東京都港区海岸2-3-2<br>健康事業 ／ エンターテイメント事業 ／ 健康経営 ／ セミナー開講 ／ イベント出演</div>
+  <div class="fc">© 2026 BOH合同会社. All rights reserved.</div>
+</div>
+
+</div>
+</body>
+</html>

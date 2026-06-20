@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOH HOME ワイヤーフレーム</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ヒーロー */
+.hero{background:url('image/BOH-top.png') center center/cover no-repeat;width:100%;height:380px;position:relative;border-bottom:2px solid #e0ddd8}
+.h-en{font-size:7px;letter-spacing:.22em;color:#fff;margin-bottom:6px;text-shadow:0 1px 4px rgba(0,0,0,0.6)}
+.h-copy{font-size:20px;font-weight:300;letter-spacing:.04em;color:#fff;line-height:1.6;margin-bottom:6px;text-shadow:0 2px 6px rgba(0,0,0,0.55)}
+.h-sub{font-size:8px;color:#fff;letter-spacing:.1em;text-shadow:0 1px 4px rgba(0,0,0,0.6)}
+.h-note{position:absolute;bottom:6px;right:12px;font-size:9px;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.5)}
+.h-catch{position:absolute;bottom:18px;left:0;right:0;text-align:center;font-family:'Shippori Mincho',serif;font-size:15px;font-weight:400;color:#fff;letter-spacing:.18em;text-shadow:0 2px 8px rgba(0,0,0,0.5);line-height:1.8}
+
+/* BOHとは */
+.lead{background:#fff;border:1px solid #e0ddd8;border-left:3px solid #b8973a;padding:14px 16px;margin-bottom:6px}
+.lead-t{font-size:12px;font-weight:500;color:#1a1a1a;margin-bottom:6px;letter-spacing:.02em}
+.lead-b{font-size:10px;color:#777;line-height:1.9}
+
+/* 事業カード */
+.bgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:5px}
+.bc{background:#fff;border:1px solid #e0ddd8;padding:12px 10px}
+.bc-en{font-size:8px;letter-spacing:.12em;color:#b8973a;margin-bottom:3px}
+.bc-t{font-size:11px;font-weight:500;color:#1a1a1a;margin-bottom:6px}
+.bc-l{font-size:9px;color:#888;line-height:1.85}
+.bc-l li{list-style:none;padding-left:9px;position:relative}
+.bc-l li::before{content:"—";position:absolute;left:0;color:#b8973a;font-size:8px}
+.biz-link{font-size:9px;color:#b8973a;text-align:right;margin-top:4px;letter-spacing:.06em}
+
+/* 実績グリッド（HOME用） */
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:6px}
+
+/* 記事カード（既存サイト同形式） */
+.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px}
+.nc{background:#fff;border:1px solid #f0ede8}
+.nc-img{background:#f0ede8;border-bottom:1px dashed #ccc;height:100px;display:flex;align-items:center;justify-content:center;font-size:8px;color:#bbb}
+.nc-body{padding:8px 10px}
+.nc-meta{font-size:8px;color:#b8973a;letter-spacing:.05em;margin-bottom:3px}
+.nc-title{font-size:10px;color:#1a1a1a;line-height:1.55}
+.more-link{text-align:right;font-size:9px;color:#b8973a;margin-top:4px;letter-spacing:.06em}
+/* 旧スタイル（後方互換） */
+.ai{display:grid;grid-template-columns:72px 1fr;gap:8px;padding:8px 0;border-bottom:1px solid #f0ede8;align-items:start}
+.at{background:#f0ede8;border:1px dashed #ccc;height:50px;display:flex;align-items:center;justify-content:center;font-size:8px;color:#bbb}
+.am{font-size:8px;color:#b8973a;letter-spacing:.06em;margin-bottom:2px}
+.atl{font-size:10px;color:#1a1a1a;line-height:1.55}
+
+/* ワイヤー表記 */
+.wf-badge{display:inline-block;background:#1a1a1a;color:#fafaf8;font-size:9px;padding:2px 8px;letter-spacing:.1em;margin-bottom:12px}
+</style>
+</head>
+<body>
+
+<div style="max-width:860px;margin:0 auto">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="header-top">
+    <img src="image/cropped-logo.png" alt="BOH" style="height:40px;width:200px;object-fit:contain;object-position:left center">
+    <div class="header-icons">𝕏 ⊞</div>
+  </div>
+  <nav class="nav">
+    <a class="ni active" href="index.html">HOME</a>
+    <a class="ni" href="about.html">ABOUT US</a>
+    <a class="ni teal" href="services.html">BUSINESS<sub>行政・企業向け</sub></a>
+    <a class="ni purple" href="personal-lab.html">BOH Personal Lab<sub>個人のお客様へ</sub></a>
+    <a class="ni" href="contact.html">CONTACT</a>
+    <a class="ni gold" href="about.html#greeting">代表あいさつ</a>
+  </nav>
+</div>
+
+</div><!-- /max-width wrapper 一時終了 -->
+
+<!-- ヒーロー：全幅 -->
+<div class="hero"></div>
+
+<div style="max-width:860px;margin:0 auto"><!-- max-width wrapper 再開 -->
+
+<div style="height:32px"></div>
+
+<div class="layout">
+<div class="main">
+
+  <!-- BOHとは -->
+  <div class="lead">
+    <div class="lead-t">BOH合同会社について</div>
+    <div class="lead-b">BOH合同会社は、「自立と共生が自然に調和する社会へ」を理念に掲げ、一人ひとりが本来持つ力を信頼し、その可能性を引き出すことを大切にしています。健康とは、身体だけでなく、心や人とのつながりを含めた豊かな状態であると考え、ウェルネス事業、エンターテイメント事業、研修ソリューション事業を展開しています。個人・企業・行政・地域社会それぞれに寄り添いながら、健康、表現、学びを通じて、人と組織が自分らしく成長し続けられる環境づくりに取り組んでいます。</div>
+    <div class="more-link"><a href="about.html">ABOUT US ›</a></div>
+  </div>
+
+  <!-- 事業3本柱 -->
+  <div class="sh">OUR BUSINESS — 3つの事業 <span class="lbl-n">新規追加</span></div>
+  <div class="bgrid">
+    <div class="bc">
+      <div class="bc-en">Wellness</div>
+      <div class="bc-t">ウェルネス事業</div>
+      <ul class="bc-l">
+        <li>健康支援・教育事業</li>
+        <li>BOH Personal Lab</li>
+        <li>健康関連商品の企画・販売</li>
+      </ul>
+    </div>
+    <div class="bc">
+      <div class="bc-en">Entertainment</div>
+      <div class="bc-t">エンターテイメント事業</div>
+      <ul class="bc-l">
+        <li>パフォーマンス・舞台制作</li>
+        <li>イベント出演・演出・プロデュース</li>
+        <li>表現力向上トレーニング</li>
+      </ul>
+    </div>
+    <div class="bc">
+      <div class="bc-en">Solution</div>
+      <div class="bc-t">研修ソリューション事業</div>
+      <ul class="bc-l">
+        <li>人材育成・マネジメント</li>
+        <li>企業研修・マナー教育</li>
+      </ul>
+    </div>
+  </div>
+  <div class="biz-link"><a href="services.html">各事業の詳細はこちら › BUSINESS</a></div>
+
+  <div class="divider"></div>
+
+  <!-- 実績 -->
+  <div class="sh">ACHIEVEMENTS — 主な実績 <span class="lbl-n">新規追加</span></div>
+  <div class="img-ph">実績写真（高橋社長より素材届き次第掲載）</div>
+  <div class="agrid">
+    <div class="ac">
+      <div class="ac-y">2016〜継続</div>
+      <div class="ac-t">飛鳥Ⅱ・飛鳥Ⅲ<br>豪華客船エクササイズ講師</div>
+      <span class="ac-tag">ウェルネス／エンターテイメント</span>
+    </div>
+    <div class="ac">
+      <div class="ac-y">2026</div>
+      <div class="ac-t">坂東玉三郎特別公演<br>新橋演舞場（松竹制作）</div>
+      <span class="ac-tag">エンターテイメント</span>
+    </div>
+    <div class="ac">
+      <div class="ac-y">継続</div>
+      <div class="ac-t">健康マスター検定<br>名誉リーダー</div>
+      <span class="ac-tag">ウェルネス／健康支援</span>
+    </div>
+    <div class="ac">
+      <div class="ac-y">2026</div>
+      <div class="ac-t">BOH主催<br>「HAPPINESS」プロデュース</div>
+      <span class="ac-tag">エンターテイメント／ウェルネス</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- NEWS -->
+  <div class="sh">NEWS / BLOG — 新着情報 <span class="lbl-k">現状維持</span></div>
+  <div class="news-grid">
+    <div class="nc">
+      <div class="nc-img">サムネイル</div>
+      <div class="nc-body">
+        <div class="nc-meta">2026.04.16 ／ お知らせ</div>
+        <div class="nc-title">新規入会キャンペーンのお知らせ</div>
+      </div>
+    </div>
+    <div class="nc">
+      <div class="nc-img">サムネイル</div>
+      <div class="nc-body">
+        <div class="nc-meta">2026.06.09 ／ お知らせ</div>
+        <div class="nc-title">健康マスター検定</div>
+      </div>
+    </div>
+    <div class="nc">
+      <div class="nc-img">サムネイル</div>
+      <div class="nc-body">
+        <div class="nc-meta">2026.06.05 ／ イベント報告</div>
+        <div class="nc-title">洋上発表会</div>
+      </div>
+    </div>
+    <div class="nc">
+      <div class="nc-img">サムネイル</div>
+      <div class="nc-body">
+        <div class="nc-meta">2026.05.30 ／ ウェルネス</div>
+        <div class="nc-title">洋上エクササイズ終了</div>
+      </div>
+    </div>
+  </div>
+  <div class="more-link">記事一覧 ›</div>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <div class="sh">CONTACT — お問合せ <span class="lbl-e">修正</span></div>
+  <div class="cta">
+    <div class="btn-sl">法人のお客様（出演 ／ 出講 ／ 企画）は</div>
+    <div class="btn-g">BOH へのご依頼・お問合せへ</div>
+    <div class="btn-sl">個人のお客様は</div>
+    <div class="btn-s">BOH Personal Lab へ ›</div>
+  </div>
+  <div class="memo">【修正】現行は「お問い合わせはこちら」の1本のみ。BOH法人向け（ゴールドボタン）とPersonal Lab個人向け（サブボタン）を2段に分ける。</div>
+
+</div>
+
+<!-- サイドバー -->
+<div class="sidebar">
+  <div style="height:22px"></div>
+  <div class="sbw">
+    <div class="sbt">CAMPAIGN</div>
+    <div class="sbb">キャンペーンバナー<br>（現状維持）</div>
+  </div>
+  <div class="sbw">
+    <div class="sbt">MEMBER</div>
+    <div class="sbb">入会申込バナー<br>（現状維持）</div>
+  </div>
+  <div class="sbw">
+    <div class="sbt">RECENT POSTS</div>
+    <div class="sbp">飛鳥Ⅱ アラスカ・ハワイ...<span>2026.05.20</span></div>
+    <div class="sbp">新規入会キャンペーン...<span>2026.04.16</span></div>
+    <div class="sbp">飛鳥クルーズ<span>2026.04.14</span></div>
+    <div class="sbp">健康マスター検定<span>2026.04.05</span></div>
+  </div>
+  <div class="sbw">
+    <div class="sbt">CATEGORY</div>
+    <div class="sbc">お知らせ (9)</div>
+    <div class="sbc">イベント (7)</div>
+    <div class="sbc">ウェルネス (8)</div>
+    <div class="sbc">日記 (7)</div>
+    <div class="sbc">生活習慣改善のコツ (10)</div>
+    <div class="sbc">進藤学アーカイブス (3)</div>
+  </div>
+</div>
+</div>
+
+<!-- フッター -->
+<div class="footer">
+  <div class="fl">BOH</div>
+  <div class="fa">〒105-0022 東京都港区海岸2-3-2<br>健康事業 ／ エンターテイメント事業 ／ 健康経営 ／ セミナー開講 ／ イベント出演</div>
+  <div class="fc">© 2026 BOH合同会社. All rights reserved.</div>
+</div>
+
+</div>
+</body>
+</html>

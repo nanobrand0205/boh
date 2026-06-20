@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOH ABOUT US ワイヤーフレーム</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── セクション区切り ── */
+.sec-divider{display:flex;flex-direction:column;align-items:center;padding:22px 0 16px;gap:0}
+.sec-divider-line{width:1px;height:32px;background:linear-gradient(to bottom,transparent,#c8a84b)}
+.sec-divider-diamond{width:6px;height:6px;background:#c8a84b;transform:rotate(45deg);margin:4px 0}
+.sec-divider-line2{width:1px;height:10px;background:linear-gradient(to bottom,#c8a84b,transparent)}
+.sec-label{font-size:9px;letter-spacing:.22em;color:#b8973a;padding:0 0 2px;font-family:Georgia,serif;font-style:italic}
+
+/* ── ① 理念ボックス ── */
+.rinen-box{border:1px solid #d4c089;border-radius:2px;background:linear-gradient(160deg,#fffef8,#fdf8ec);padding:30px 32px;text-align:center;position:relative}
+.rinen-box::before,.rinen-box::after{content:'';position:absolute;width:18px;height:18px;border-color:#c8a84b;border-style:solid}
+.rinen-box::before{top:8px;left:8px;border-width:1px 0 0 1px}
+.rinen-box::after{bottom:8px;right:8px;border-width:0 1px 1px 0}
+.rinen-small{font-size:8px;letter-spacing:.25em;color:#b8973a;margin-bottom:12px;font-family:Georgia,serif;font-style:italic}
+.rinen-main{font-size:18px;font-weight:300;color:#1a1a1a;letter-spacing:.06em;line-height:1.7;margin-bottom:14px}
+.rinen-rule{width:36px;height:1px;background:#c8a84b;margin:0 auto 14px}
+.rinen-sub{font-size:10px;color:#777;line-height:2.1;letter-spacing:.04em}
+
+/* ── ② 3つの領域 ── */
+.domain-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.domain-card{background:#fff;border:1px solid #e8e3d8;border-radius:2px;padding:24px 16px 20px;text-align:center;position:relative;transition:box-shadow .2s}
+.domain-card:hover{box-shadow:0 4px 20px rgba(184,151,58,.1)}
+.domain-icon-wrap{width:52px;height:52px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;border:1px solid #d4c089;border-radius:50%}
+.domain-icon-wrap svg{width:26px;height:26px;stroke:#b8973a;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.domain-title{font-size:15px;font-weight:400;color:#1a1a1a;margin-bottom:8px;letter-spacing:.06em}
+.domain-rule{width:24px;height:1px;background:#c8a84b;margin:0 auto 8px}
+.domain-sub{font-size:8px;font-weight:600;color:#b8973a;margin-bottom:8px;letter-spacing:.1em;text-transform:uppercase}
+.domain-desc{font-size:9px;color:#888;line-height:1.9}
+
+/* ── ③ 3つの事業 ── */
+.biz-grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.biz-card{background:#fff;border:1px solid #e8e3d8;border-radius:2px;padding:20px 16px;display:flex;flex-direction:column}
+.biz-card-accent{height:2px;margin-bottom:16px;border-radius:1px}
+.biz-card.wellness .biz-card-accent{background:linear-gradient(90deg,#5DCAA5,#a8dece)}
+.biz-card.entertainment .biz-card-accent{background:linear-gradient(90deg,#7B6FD4,#b0aae8)}
+.biz-card.solution .biz-card-accent{background:linear-gradient(90deg,#c8a84b,#e2d08a)}
+.biz-card-icon{width:36px;height:36px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center}
+.biz-card-icon svg{width:28px;height:28px;fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.biz-card.wellness .biz-card-icon svg{stroke:#5DCAA5}
+.biz-card.entertainment .biz-card-icon svg{stroke:#7B6FD4}
+.biz-card.solution .biz-card-icon svg{stroke:#b8973a}
+.biz-card-title{font-size:12px;font-weight:500;color:#1a1a1a;margin-bottom:6px;text-align:center;letter-spacing:.04em}
+.biz-card.wellness .biz-card-title{color:#085041}
+.biz-card.entertainment .biz-card-title{color:#26215C}
+.biz-card.solution .biz-card-title{color:#7a6520}
+.biz-card-sub{font-size:9px;color:#888;line-height:1.8;text-align:center;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid #f0ede8}
+.biz-items{list-style:none;padding:0;margin:0;margin-top:auto}
+.biz-items li{font-size:9px;color:#666;line-height:2;display:flex;align-items:flex-start;gap:6px}
+.biz-dot{width:4px;height:4px;border-radius:50%;flex-shrink:0;margin-top:7px}
+.biz-card.wellness .biz-dot{background:#5DCAA5}
+.biz-card.entertainment .biz-dot{background:#7B6FD4}
+.biz-card.solution .biz-dot{background:#b8973a}
+
+/* ── ④ 目指す未来 ── */
+.future-flow{display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr;align-items:center;gap:0}
+.future-card{background:#fff;border:1px solid #e8e3d8;border-radius:2px;padding:20px 14px;text-align:center}
+.future-icon-wrap{width:44px;height:44px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;border:1px solid #d4c089;border-radius:50%}
+.future-icon-wrap svg{width:22px;height:22px;stroke:#b8973a;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.future-title{font-size:11px;font-weight:500;color:#1a1a1a;margin-bottom:3px;letter-spacing:.04em}
+.future-tag{font-size:8px;color:#b8973a;margin-bottom:8px;letter-spacing:.06em}
+.future-desc{font-size:9px;color:#888;line-height:1.8}
+.future-arrow-col{display:flex;align-items:center;justify-content:center}
+.future-arrow-col svg{width:24px;height:16px;stroke:#c8a84b;fill:none;stroke-width:1.2}
+
+/* ── ⑤ 締め ── */
+.closing-box{border:1px solid #e8e3d8;border-radius:2px;background:#faf8f3;padding:24px 28px;text-align:center;position:relative}
+.closing-text{font-size:11px;color:#666;line-height:2.2;letter-spacing:.04em}
+.closing-text em{color:#1a1a1a;font-style:normal;font-weight:500}
+
+/* ── 代表リンク ── */
+.greeting-link{background:#fff;border:1px solid #e8e3d8;border-left:2px solid #c8a84b;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;border-radius:2px}
+.gl-label{font-size:8px;letter-spacing:.18em;color:#b8973a;margin-bottom:5px;font-family:Georgia,serif;font-style:italic}
+.gl-title{font-size:11px;color:#1a1a1a;margin-bottom:3px;letter-spacing:.02em}
+.gl-sub{font-size:9px;color:#999;line-height:1.6}
+.gl-arrow{font-size:16px;color:#c8a84b;opacity:.7;font-weight:300}
+</style>
+</head>
+<body>
+
+<div style="max-width:860px;margin:0 auto">
+
+<div class="header">
+  <img src="image/cropped-logo.png" alt="BOH" style="height:40px;width:200px;object-fit:contain;object-position:left center">
+  <nav class="nav">
+    <a class="ni" href="index.html">HOME</a>
+    <a class="ni active" href="about.html">ABOUT US</a>
+    <a class="ni teal" href="services.html">BUSINESS<sub>行政・企業向け</sub></a>
+    <a class="ni purple" href="personal-lab.html">BOH Personal Lab<sub>個人のお客様へ</sub></a>
+    <a class="ni" href="contact.html">CONTACT</a>
+    <a class="ni gold" href="about.html#greeting">代表あいさつ</a>
+  </nav>
+  <div class="header-icons">🔍 ≡</div>
+</div>
+
+<div class="page-hero-dark">
+  <div class="ph-img-label">
+    <div class="ph-en-dark">About Us</div>
+    <div class="ph-ja-dark">BOH合同会社について</div>
+  </div>
+</div>
+<div class="breadcrumb">TOP &nbsp;/&nbsp; ABOUT US</div>
+
+<div class="layout">
+<div class="main">
+
+  <!-- ① BOHの理念 -->
+  <div class="sh" style="font-size:9px;letter-spacing:.18em;color:#b8973a">BOHの理念</div>
+  <div class="rinen-box">
+    <div class="rinen-small">Our Philosophy</div>
+    <div class="rinen-main">自立と共生が、自然に調和する社会へ。</div>
+    <div class="rinen-rule"></div>
+    <div class="rinen-sub">
+      人が本来持つ力を信頼し、その可能性を引き出すことで、<br>
+      より良い未来へ歩み続けられる環境をつくる。
+    </div>
+  </div>
+
+  <!-- セクション区切り -->
+  <div class="sec-divider">
+    <div class="sec-divider-line"></div>
+    <div class="sec-divider-diamond"></div>
+    <div class="sec-divider-line2"></div>
+    <div style="height:8px"></div>
+    <div class="sec-label">BOHが大切にしている３つの領域</div>
+  </div>
+
+  <!-- ② 3つの領域 -->
+  <div class="domain-grid">
+    <div class="domain-card">
+      <div class="domain-icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M12 2c2.5 0 4 1.5 4 3.5S14.5 9 12 9 8 7.5 8 5.5 9.5 2 12 2z"/><path d="M6 22v-3a6 6 0 0112 0v3"/><path d="M9 14l3 3 3-3"/></svg>
+      </div>
+      <div class="domain-title">健康</div>
+      <div class="domain-rule"></div>
+      <div class="domain-sub">身体と心を整える</div>
+      <div class="domain-desc">一人ひとりが健やかに、<br>自分らしく生きるための土台をつくる。</div>
+    </div>
+    <div class="domain-card">
+      <div class="domain-icon-wrap">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><circle cx="15" cy="7" r="3"/><path d="M3 21v-2a5 5 0 015-5h8a5 5 0 015 5v2"/><path d="M12 14v4M9 17h6"/></svg>
+      </div>
+      <div class="domain-title">表現</div>
+      <div class="domain-rule"></div>
+      <div class="domain-sub">人と人をつなぐ</div>
+      <div class="domain-desc">楽しみや感動を通じて、<br>人と人のつながりを生み出す。</div>
+    </div>
+    <div class="domain-card">
+      <div class="domain-icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><path d="M8 7h8M8 11h5"/></svg>
+      </div>
+      <div class="domain-title">教育</div>
+      <div class="domain-rule"></div>
+      <div class="domain-sub">成長を支える</div>
+      <div class="domain-desc">学びと気づきを通じて、<br>人と組織の成長を支える。</div>
+    </div>
+  </div>
+
+  <!-- セクション区切り -->
+  <div class="sec-divider">
+    <div class="sec-divider-line"></div>
+    <div class="sec-divider-diamond"></div>
+    <div class="sec-divider-line2"></div>
+    <div style="height:8px"></div>
+    <div class="sec-label">その想いを実現する３つの事業</div>
+  </div>
+
+  <!-- ③ 3つの事業 -->
+  <div class="biz-grid3">
+    <div class="biz-card wellness">
+      <div class="biz-card-accent"></div>
+      <div class="biz-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 21C12 21 4 13.5 4 8.5a5 5 0 0110 0 5 5 0 0110 0C24 13.5 12 21 12 21z" stroke="#5DCAA5"/><path d="M12 8.5v5M9.5 11H15" stroke="#5DCAA5"/></svg>
+      </div>
+      <div class="biz-card-title">ウェルネス事業</div>
+      <div class="biz-card-sub">身体と心の健康を支え、<br>健やかな日常と未来をつくる</div>
+      <ul class="biz-items">
+        <li><span class="biz-dot"></span>健康増進・介護予防プログラム</li>
+        <li><span class="biz-dot"></span>姿勢改善・ボディメイク指導</li>
+        <li><span class="biz-dot"></span>出張レッスン・グループレッスン</li>
+        <li><span class="biz-dot"></span>企業の健康経営支援</li>
+        <li><span class="biz-dot"></span>行政・自治体への支援</li>
+      </ul>
+    </div>
+    <div class="biz-card entertainment">
+      <div class="biz-card-accent"></div>
+      <div class="biz-card-icon">
+        <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21" stroke="#7B6FD4"/><path d="M15 8l2 4-2 4" stroke="#7B6FD4"/></svg>
+      </div>
+      <div class="biz-card-title">エンターテイメント事業</div>
+      <div class="biz-card-sub">楽しみながら学び、つながる場をつくり、<br>心を動かす体験を届ける</div>
+      <ul class="biz-items">
+        <li><span class="biz-dot"></span>イベント企画・プロデュース</li>
+        <li><span class="biz-dot"></span>舞台出演・パフォーマンス</li>
+        <li><span class="biz-dot"></span>振付・演出・構成</li>
+        <li><span class="biz-dot"></span>地域活性化・まちづくり支援</li>
+        <li><span class="biz-dot"></span>発表会・コンテスト企画</li>
+      </ul>
+    </div>
+    <div class="biz-card solution">
+      <div class="biz-card-accent"></div>
+      <div class="biz-card-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1" stroke="#b8973a"/><path d="M7 8h10M7 12h6M7 16h4" stroke="#b8973a"/></svg>
+      </div>
+      <div class="biz-card-title">研修ソリューション事業</div>
+      <div class="biz-card-sub">人と組織の成長を支援し、<br>自立して動ける力を育てる</div>
+      <ul class="biz-items">
+        <li><span class="biz-dot"></span>接遇・マナー・所作研修</li>
+        <li><span class="biz-dot"></span>インストラクター育成</li>
+        <li><span class="biz-dot"></span>インストラクター派遣</li>
+        <li><span class="biz-dot"></span>マネジメント・運営支援</li>
+        <li><span class="biz-dot"></span>組織づくり・人材育成支援</li>
+      </ul>
+    </div>
+  </div>
+  <div style="font-size:9px;color:#b8973a;text-align:right;margin-top:8px;letter-spacing:.06em">
+    <a href="services.html" style="color:#b8973a;text-decoration:none">各事業の詳細・実績はこちら › BUSINESS</a>
+  </div>
+
+  <!-- セクション区切り -->
+  <div class="sec-divider">
+    <div class="sec-divider-line"></div>
+    <div class="sec-divider-diamond"></div>
+    <div class="sec-divider-line2"></div>
+    <div style="height:8px"></div>
+    <div class="sec-label">BOHが目指す未来</div>
+  </div>
+
+  <!-- ④ 目指す未来フロー -->
+  <div class="future-flow" style="grid-template-columns:1fr 1fr 1fr">
+    <div class="future-card">
+      <div class="future-icon-wrap">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="6" r="3"/><path d="M12 10v6M9 19h6"/><path d="M8 13c-2 1-3 3-3 5h14c0-2-1-4-3-5"/></svg>
+      </div>
+      <div class="future-title">個人の自立</div>
+      <div class="future-tag">自分らしく生きる力を育む</div>
+      <div class="future-desc">自分の軸を持ち、<br>健やかに生きられる人を増やす。</div>
+    </div>
+    <div class="future-card">
+      <div class="future-icon-wrap">
+        <svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 21v-1a6 6 0 016-6h8a6 6 0 016 6v1"/><path d="M12 14v3M10 16h4"/></svg>
+      </div>
+      <div class="future-title">地域・組織の共生</div>
+      <div class="future-tag">人と人がつながり支え合う</div>
+      <div class="future-desc">組織や地域の中で、<br>互いに支え合える関係を育てる。</div>
+    </div>
+    <div class="future-card">
+      <div class="future-icon-wrap">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3C8 7 8 17 12 21M12 3c4 4 4 14 0 18M3 12h18"/><path d="M4.5 7.5q3.5 1.5 7.5 1.5t7.5-1.5M4.5 16.5q3.5-1.5 7.5-1.5t7.5 1.5"/></svg>
+      </div>
+      <div class="future-title">社会の調和</div>
+      <div class="future-tag">健やかで持続可能な未来へ</div>
+      <div class="future-desc">自立と共生が自然に調和する、<br>豊かな社会の実現を目指す。</div>
+    </div>
+  </div>
+
+  <div class="divider" style="margin:22px 0"></div>
+
+  <!-- ⑤ 締め -->
+  <div class="closing-box">
+    <div class="closing-text">
+      健康・表現・教育という異なるアプローチで、すべての人の可能性を引き出し、<br>
+      より良い未来へつなぐことが、<em>BOHの変わらない使命</em>です。
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 代表あいさつ -->
+  <div class="sh" id="greeting">MESSAGE — 代表あいさつ</div>
+  <div class="greeting-link">
+    <div>
+      <div class="gl-label">Representative Message</div>
+      <div class="gl-title">代表・進藤学のプロフィール・想いはこちら</div>
+      <div class="gl-sub">BOHが生まれた原体験、健康への哲学、人物像について</div>
+    </div>
+    <div class="gl-arrow">›</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <div class="sh">CONTACT — お問合せ</div>
+  <div class="cta">
+    <div class="btn-sl">法人のお客様（出演 ／ 出講 ／ 企画）は</div>
+    <div class="btn-g">BOH へのご依頼・お問合せへ</div>
+    <div class="btn-sl">個人のお客様は</div>
+    <div class="btn-s">BOH Personal Lab へ ›</div>
+  </div>
+
+</div>
+
+<!-- サイドバー -->
+<div class="sidebar">
+  <div style="height:22px"></div>
+  <div class="sbw"><div class="sbt">CAMPAIGN</div><div class="sbb">キャンペーンバナー（現状維持）</div></div>
+  <div class="sbw"><div class="sbt">MEMBER</div><div class="sbb">入会申込バナー（現状維持）</div></div>
+  <div class="sbw">
+    <div class="sbt">RECENT POSTS</div>
+    <div class="sbp">飛鳥Ⅱ アラスカ・ハワイ...<span>2026.05.20</span></div>
+    <div class="sbp">新規入会キャンペーン...<span>2026.04.16</span></div>
+    <div class="sbp">飛鳥クルーズ<span>2026.04.14</span></div>
+    <div class="sbp">健康マスター検定<span>2026.04.05</span></div>
+  </div>
+  <div class="sbw">
+    <div class="sbt">CATEGORY</div>
+    <div class="sbc">お知らせ (9)</div>
+    <div class="sbc">イベント (7)</div>
+    <div class="sbc">ウェルネス (8)</div>
+    <div class="sbc">日記 (7)</div>
+    <div class="sbc">生活習慣改善のコツ (10)</div>
+    <div class="sbc">進藤学アーカイブス (3)</div>
+  </div>
+</div>
+</div>
+
+<div class="footer">
+  <div class="fl">BOH</div>
+  <div class="fa">〒105-0022 東京都港区海岸2-3-2<br>健康事業 ／ エンターテイメント事業 ／ 健康経営 ／ セミナー開講 ／ イベント出演</div>
+  <div class="fc">© 2026 BOH合同会社. All rights reserved.</div>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOH CONTACT ワイヤーフレーム</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* CONTACT専用 */
+.contact-intro{background:#fff;border:1px solid #e0ddd8;border-left:3px solid #b8973a;padding:14px 16px;margin-bottom:6px}
+.contact-intro-body{font-size:10px;color:#777;line-height:1.9}
+.form-section{background:#fff;border:1px solid #e0ddd8;padding:14px 16px;margin-bottom:10px}
+.form-section-title{font-size:10px;font-weight:500;color:#1a1a1a;letter-spacing:.1em;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #f0ede8;display:flex;align-items:center;gap:6px}
+.form-row{display:grid;grid-template-columns:110px 1fr;gap:8px;margin-bottom:8px;align-items:start}
+.form-label{font-size:9px;color:#555;padding-top:2px}
+.form-input{background:#f5f5f3;border:1px solid #e0ddd8;height:26px;font-size:9px;color:#bbb;padding:0 8px;display:flex;align-items:center}
+.form-textarea{background:#f5f5f3;border:1px solid #e0ddd8;height:60px;font-size:9px;color:#bbb;padding:6px 8px}
+.form-req{font-size:7px;color:#cc3300;margin-left:3px}
+.check-group{display:flex;flex-direction:column;gap:4px}
+.check-item{display:flex;align-items:center;gap:5px;font-size:9px;color:#555}
+.check-box{width:12px;height:12px;border:1px solid #ccc;background:#fff;flex-shrink:0}
+.form-divider{border:none;border-top:1px solid #e0ddd8;margin:12px 0}
+.submit-btn{display:block;background:#b8973a;color:#fff;font-size:10px;letter-spacing:.15em;padding:10px 16px;text-align:center;margin-top:10px}
+.contact-info{background:#f5f2ed;border:1px solid #e0ddd8;padding:12px 14px;margin-bottom:6px}
+.contact-info-title{font-size:9px;letter-spacing:.12em;color:#b8973a;margin-bottom:6px}
+.contact-info-body{font-size:9px;color:#666;line-height:1.85}
+</style>
+</head>
+<body>
+
+<div style="max-width:860px;margin:0 auto">
+
+<div class="header">
+  <img src="image/cropped-logo.png" alt="BOH" style="height:40px;width:200px;object-fit:contain;object-position:left center">
+  <nav class="nav">
+    <a class="ni" href="index.html">HOME</a>
+    <a class="ni" href="about.html">ABOUT US</a>
+    <a class="ni teal" href="services.html">BUSINESS<sub>行政・企業向け</sub></a>
+    <a class="ni purple" href="personal-lab.html">BOH Personal Lab<sub>個人のお客様へ</sub></a>
+    <a class="ni active" href="contact.html">CONTACT</a>
+    <a class="ni gold" href="about.html#greeting">代表あいさつ</a>
+  </nav>
+  <div class="header-icons">🔍 ≡</div>
+</div>
+
+<div class="page-hero-dark">
+  <div class="ph-img-label">
+    <div class="ph-en-dark">Contact</div>
+    <div class="ph-ja-dark">お問合せ</div>
+  </div>
+</div>
+<div class="breadcrumb">TOP &nbsp;/&nbsp; CONTACT</div>
+
+<div class="layout">
+<div class="main">
+
+  <!-- ページ冒頭 -->
+  <div class="sh">— 2つの窓口について <span class="lbl-e">修正</span></div>
+  <div class="contact-intro">
+    <div class="contact-intro-body">BOHへのお問合せは、<strong style="color:#1a1a1a">「BOHへのご依頼」</strong>と<strong style="color:#1a1a1a">「BOH Personal Labへのお問合せ」</strong>の2つの窓口があります。以下のフォームから該当する項目をお選びください。</div>
+  </div>
+  <div class="memo">【修正】現行はフォームのみで窓口の説明がなし。冒頭に2つの窓口の説明を追加し、訪問者が迷わないようにする。</div>
+
+  <div class="divider"></div>
+
+  <!-- フォーム -->
+  <div class="sh">FORM — お問合せフォーム <span class="lbl-k">現状維持</span></div>
+  <div class="form-section">
+    <div class="form-section-title">お名前<span class="form-req">※必須</span></div>
+    <div class="form-row">
+      <div class="form-label">お名前<span class="form-req">※</span></div>
+      <div class="form-input">例）山田 太郎</div>
+    </div>
+    <div class="form-row">
+      <div class="form-label">メールアドレス<span class="form-req">※</span></div>
+      <div class="form-input">例）info@example.com</div>
+    </div>
+    <div class="form-row">
+      <div class="form-label">メールアドレス（確認）<span class="form-req">※</span></div>
+      <div class="form-input">もう一度ご入力ください</div>
+    </div>
+
+    <div class="form-divider"></div>
+
+    <div class="form-section-title">お問合せ項目</div>
+    <div class="form-row">
+      <div class="form-label" style="color:#b8973a;font-weight:500">— BOH</div>
+      <div class="check-group">
+        <div class="check-item"><div class="check-box"></div>出演依頼</div>
+        <div class="check-item"><div class="check-box"></div>出講依頼</div>
+        <div class="check-item"><div class="check-box"></div>企画依頼</div>
+      </div>
+    </div>
+
+    <div class="form-divider"></div>
+
+    <div class="form-row">
+      <div class="form-label" style="color:#26215C;font-weight:500">— BOH Personal Lab</div>
+      <div class="check-group">
+        <div class="check-item"><div class="check-box"></div>入会希望</div>
+        <div class="check-item"><div class="check-box"></div>レッスン依頼</div>
+        <div class="check-item"><div class="check-box"></div>その他</div>
+      </div>
+    </div>
+
+    <div class="form-divider"></div>
+
+    <div class="form-section-title">お問合せ内容<span style="font-size:8px;color:#aaa;font-weight:400;margin-left:6px">任意</span></div>
+    <div class="form-textarea">ご自由にお書きください</div>
+
+    <div class="submit-btn">送信する</div>
+  </div>
+  <div class="memo">【現状維持】既存フォームの構成はそのまま。ページ冒頭の2窓口説明を追加するのみ。「お問い合わせ」→「お問合せ」表記統一も反映。</div>
+
+  <div class="divider"></div>
+
+  <!-- 連絡先情報 -->
+  <div class="sh">— 各種連絡先 <span class="lbl-k">現状維持</span></div>
+  <div class="contact-info">
+    <div class="contact-info-title">CONTACT INFORMATION</div>
+    <div class="contact-info-body">
+      BOH合同会社<br>
+      〒105-0022 東京都港区海岸2-3-2<br>
+      Email：info@boh888.jp<br>
+    </div>
+  </div>
+
+</div>
+<div class="sidebar">
+  <div style="height:22px"></div>
+  <div class="sbw"><div class="sbt">CAMPAIGN</div><div class="sbb">キャンペーンバナー（現状維持）</div></div>
+  <div class="sbw"><div class="sbt">MEMBER</div><div class="sbb">入会申込バナー（現状維持）</div></div>
+  <div class="sbw">
+    <div class="sbt">RECENT POSTS</div>
+    <div class="sbp">飛鳥Ⅱ アラスカ・ハワイ...<span>2026.05.20</span></div>
+    <div class="sbp">新規入会キャンペーン...<span>2026.04.16</span></div>
+    <div class="sbp">飛鳥クルーズ<span>2026.04.14</span></div>
+    <div class="sbp">健康マスター検定<span>2026.04.05</span></div>
+  </div>
+  <div class="sbw">
+    <div class="sbt">CATEGORY</div>
+    <div class="sbc">お知らせ (9)</div>
+    <div class="sbc">イベント (7)</div>
+    <div class="sbc">ウェルネス (8)</div>
+    <div class="sbc">日記 (7)</div>
+    <div class="sbc">生活習慣改善のコツ (10)</div>
+    <div class="sbc">進藤学アーカイブス (3)</div>
+  </div>
+</div>
+</div>
+
+<div class="footer">
+  <div class="fl">BOH</div>
+  <div class="fa">〒105-0022 東京都港区海岸2-3-2<br>健康事業 ／ エンターテイメント事業 ／ 健康経営 ／ セミナー開講 ／ イベント出演</div>
+  <div class="fc">© 2026 BOH合同会社. All rights reserved.</div>
+</div>
+
+</div>
+</body>
+</html>
