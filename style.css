@@ -85,7 +85,7 @@ a.ni:hover{background:#f0ede8}
 @media (max-width: 768px) {
   .header .nav { display: none; }
   .layout { grid-template-columns: 1fr; padding: 0 16px; }
-  .sidebar { display: none; }
+  .sidebar { padding: 0 0 20px 0; border-top: 1px solid #e0ddd8; margin-top: 16px; }
   .main { padding: 16px 0; border-right: none; }
   .memo { display: none; }
   .page-hero { padding: 20px 16px 14px; }
