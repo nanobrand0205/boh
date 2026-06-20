@@ -82,7 +82,7 @@ a.ni:hover{background:#f0ede8}
 .ac-t{font-size:10px;color:#1a1a1a;line-height:1.6;margin-bottom:4px}
 .ac-tag{font-size:8px;color:#999;border:1px solid #e0ddd8;padding:1px 5px;display:inline-block}
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .header .nav { display: none; }
   .layout { grid-template-columns: 1fr; padding: 0 16px; }
   .sidebar { display: none; }
